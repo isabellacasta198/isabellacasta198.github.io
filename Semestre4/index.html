@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Vida - Isabella Castaño</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: #6b61635d;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+    }
+    section {
+      margin: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #4b4a4a;
+      border-bottom: 2px solid #4e4144;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: square;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="imageIsa.jpg" alt="c:\Users\isabe\Downloads\imageIsa.jpg">
+    <h1>Isabella Castaño Muñoz</h1>
+    <p>Estudiante de Tecnología en Sistemas en la Universidad Santiago de Cali, 
+       con conocimientos en bases de datos, PHP, HTML, CSS y leguajes de programación(Java,Python,Javascript).</p>
+  </header>
+
+  <section>
+    <h2>Historial Académico</h2>
+    <p>Bachiller técnico con énfasis en comercio Estado:finalizado fecha:01/12/2023</p>
+    <p>Tecnología en Sistemas - Universidad Santiago de CaliEstado:en curso fecha:01/02/2024</p>
+    <p>Curso de Inglés B2 Estado:en curso</p>
+    <ul id="academico"></ul>
+    <form id="formAcademico">
+      <div class="form-group">
+        <label for="estudio">Nombre del estudio</label>
+        <input type="text" id="estudio" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaEstudio">Fecha de finalización o Inicialización</label>
+        <input type="date" id="fechaEstudio" required>
+      </div>
+      <div class="form-group">
+        <label for="estadoEstudio">Estado</label>
+        <select id="estadoEstudio" required>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Finalizado">Finalizado </option>
+          <option value="En curso">En curso</option>
+        </select>
+      </div>
+      <button type="submit">Añadir Estudio</button>
+    </form>
+  </section>
+
+  
+  <section>
+    <h2>Historial Laboral</h2>
+    <p>Prácticas académicas en proyectos web universitarios</p>
+    <p>Participación en proyecto Spotify EmotionAI (propuesta académica)</p>
+    <ul id="laboral"></ul>
+    <form id="formLaboral">
+      <div class="form-group">
+        <label for="trabajo">Nombre del trabajo</label>
+        <input type="text" id="trabajo" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaTrabajo">Fecha de finalización o Inicialización</label>
+        <input type="date" id="fechaTrabajo" required>
+      </div>
+      <div class="form-group">
+        <label for="estadoTrabajo">Estado</label>
+        <select id="estadoTrabajo" required>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Finalizado">Finalizado o Inicialización</option>
+          <option value="En curso">En curso</option>
+        </select>
+      </div>
+      <button type="submit">Añadir Experiencia</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <p>PHP y MySQL (nivel intermedio)</p>
+     <p>HTML y CSS (nivel intermedio)</p>
+    <ul id="skills"></ul>
+    <form id="formSkill">
+      <div class="form-group">
+        <label for="skill">Nombre de la habilidad</label>
+        <input type="text" id="skill" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaSkill">Fecha de finalización o Inicialización</label>
+        <input type="date" id="fechaSkill" required>
+      </div>
+      <div class="form-group">
+        <label for="estadoSkill">Estado</label>
+        <select id="estadoSkill" required>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Finalizado">Finalizado o Inicialización</option>
+          <option value="En curso">En curso</option>
+        </select>
+      </div>
+      <button type="submit">Añadir Habilidad</button>
+    </form>
+  
+  </section>
+
+
+    <div id="taskList"></div>
+        <!-- referencia al script -->
+        <script src="script.js"></script>
+</body>
+</html>

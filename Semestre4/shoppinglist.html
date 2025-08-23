@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"  content="width=device-width,inicial-scale=1.0">
+        <title>Listas de compras dinamica</title>
+        <!--este es un estilo css embebido-->
+        <style>
+            li{
+                margin-bottom: 10px;
+            }
+            li button{
+                font-size: 12px;
+                margin-left: 20px;
+                color:rgb(210, 75, 152);
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+        //se crean referencias a los 3 elementos importantes de la pagina que necesitamos usar:
+
+        const list = document.querySelector("ul");
+        const input = document.querySelector("input");
+        const button = document.querySelector("button");
+
+
+        //funcion para responder a evento del boton:
+        button.addEventListener("click" , () => {
+            //capturamos el valor ingresado en la caja de texto :
+            const myItem =input.value;
+            input.value="";
+
+            //creamos nuevos elementos html para ese item:
+            const listItem = document.createElement("li");
+            const listText = document.createElement("span");
+            const listBtn = document.createElement("button");
+
+            //y luego lo agregamos a la lista vacia 
+            //primero el texto 
+            listItem.appendChild(listText);
+            listText.textContent= myItem;
+
+
+            //boton para eliminar el item:
+            listItem.appendChild(listBtn);
+            listBtn.textContent="delete";
+
+            list.appendChild(listItem);
+
+            //adicionar funcionalidades al boton de borrar:
+            listBtn.addEventListener("click" ,()=>{
+                list.removeChild(listItem);
+            });
+            //darle el foco a la cajita de texto(poner el cursor ahi):
+            input.focus();
+        } );
+        </script>
+    </body>
+</html>
