@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prog. Web 2025B</title>
+    <!-- Cargamos hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#inicio">Prog. Web 2025B</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#temas">Temas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#enlaces">Enlaces</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrusel de imágenes -->
+    <section id="galeria" class="py-5">
+        <div class="container">
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.pexels.com/photos/20775629/pexels-photo-20775629.jpeg?cs=srgb&dl=pexels-edurawpro-20775629.jpg&fm=jpg" class="d-block w-100" alt="Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://live.staticflickr.com/7118/7040130697_0e92419a83_b.jpg" class="d-block w-100" alt="Imagen 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://farm7.staticflickr.com/6120/6320640746_591efcab7e_o.jpg" class="d-block w-100" alt="Imagen 3">
+                    </div>
+                </div>
+                <!-- Controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
