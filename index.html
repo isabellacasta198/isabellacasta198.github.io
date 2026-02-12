@@ -1,144 +1,802 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoja de Vida - Isabella Castaño</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fdfdfd;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-     text-align: center; 
-      background: #6b61635d;
-      color: #333;
-      padding: 20px;
-      text-align: center;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      object-fit: cover;
-    }
-    section {
-      margin: 20px;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #4b4a4a;
-      border-bottom: 2px solid #4e4144;
-      padding-bottom: 5px;
-    }
-    ul {
-      list-style: square;
-      margin-left: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella Castaño - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a1a;
+            --accent: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #inicio {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        #inicio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            line-height: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-cta:hover {
+            color: var(--primary-bg);
+        }
+
+        /* Section Styling */
+        section {
+            min-height: 100vh;
+            padding: 100px 3rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 6px;
+            margin-bottom: 4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Perfil Section */
+        #perfil {
+            background: var(--secondary-bg);
+        }
+
+        .perfil-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .perfil-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: var(--accent);
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+        }
+
+        .contact-value a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-value a:hover {
+            color: var(--accent);
+        }
+
+        .perfil-image {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .perfil-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+        }
+
+        .image-placeholder {
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        /* Educación Section */
+        #educacion {
+            background: var(--primary-bg);
+        }
+
+        .educacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .educacion-card {
+            background: var(--secondary-bg);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .educacion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.4s ease;
+        }
+
+        .educacion-card:hover::before {
+            width: 100%;
+        }
+
+        .educacion-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .educacion-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .educacion-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .educacion-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Experiencia Section */
+        #experiencia {
+            background: var(--secondary-bg);
+        }
+
+        .experiencia-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .experiencia-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            padding: 3rem;
+            background: var(--primary-bg);
+            border-left: 3px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .experiencia-item:hover {
+            transform: translateX(20px);
+            border-left-width: 5px;
+        }
+
+        .experiencia-icon {
+            font-size: 4rem;
+            opacity: 0.2;
+            text-align: center;
+        }
+
+        .experiencia-content h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .experiencia-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .experiencia-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .experiencia-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .experiencia-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Certificación Section */
+        #certificacion {
+            background: var(--primary-bg);
+        }
+
+        .certificacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .certificacion-card {
+            background: var(--secondary-bg);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificacion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .certificacion-card:hover::before {
+            left: 100%;
+        }
+
+        .certificacion-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        .cert-logo {
+            width: 200px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .certificacion-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .certificacion-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav .container {
+                padding: 0 2rem;
+            }
+
+            nav ul {
+                gap: 2rem;
+            }
+
+            .perfil-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .experiencia-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 80px 2rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .educacion-grid,
+            .certificacion-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experiencia-item:hover {
+                transform: translateX(10px);
+            }
+
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Page indicator */
+        .page-number {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            z-index: 100;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="imageIsa.jpg" alt="c:\Users\isabe\Downloads\imageIsa.jpg">
-    <h1>Isabella Castaño Muñoz</h1>
-    <center>
-    <p>Soy estudiante de Tecnología en Sistemas en la Universidad Santiago de Cali, apasionada por el desarrollo tecnológico y la innovación. Poseo conocimientos en el diseño y gestión de bases de datos, así como en el desarrollo web utilizando PHP, HTML y CSS. Además, cuento con bases sólidas en lenguajes de programación como Java, Python y JavaScript, lo que me permite adaptarme a diferentes entornos y proyectos.
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Isabella Castaño</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#certificacion">Certificación</a></li>
+            </ul>
+        </div>
+    </nav>
 
-Mi formación me ha brindado una visión integral del área de sistemas, con capacidad para analizar, diseñar y proponer soluciones eficientes. Me interesa seguir fortaleciendo mis competencias técnicas y profesionales, con el objetivo de contribuir al desarrollo de proyectos tecnológicos que generen impacto positivo.<p>
-  </center>
-  </header>
+    <!-- Hero Section -->
+    <section id="inicio">
+        <div class="hero-content">
+            <h1>Isabella<br>Castaño</h1>
+            <p class="hero-subtitle">ESTUDIANTE DE TECNOLOGÍA EN SISTEMAS</p>
+            <a href="#perfil" class="hero-cta">Explore Now</a>
+        </div>
+    </section>
 
-  <section>
-    <h2>Historial Académico</h2>
-    <p>Bachiller técnico con énfasis en comercio Estado:finalizado fecha:01/12/2023</p>
-    <p>Tecnología en Sistemas - Universidad Santiago de CaliEstado:en curso fecha:01/02/2024</p>
-    <p>Curso de Inglés B2 Estado:en curso</p>
-    <ul id="academico"></ul>
-    <form id="formAcademico">
-      <div class="form-group">
-        <label for="estudio">Nombre del estudio</label>
-        <input type="text" id="estudio" required>
-      </div>
-      <div class="form-group">
-        <label for="fechaEstudio">Fecha de finalización o Inicialización</label>
-        <input type="date" id="fechaEstudio" required>
-      </div>
-      <div class="form-group">
-        <label for="estadoEstudio">Estado</label>
-        <select id="estadoEstudio" required>
-          <option value="Pendiente">Pendiente</option>
-          <option value="Finalizado">Finalizado </option>
-          <option value="En curso">En curso</option>
-        </select>
-      </div>
-      <button type="submit">Añadir Estudio</button>
-    </form>
-  </section>
+    <!-- Perfil Section -->
+    <section id="perfil">
+        <div class="container">
+            <h2 class="section-title">Perfil</h2>
+            <div class="perfil-grid">
+                <div class="perfil-content fade-in">
+                    <p>Estudiante de Tecnología en Sistemas, con alto sentido de la responsabilidad, organización y aprendizaje continuo. Cuento con manejo de herramientas ofimáticas como Excel y Word, así como conocimientos básicos en bases de datos. Poseo nivel de inglés B2 y formación en atención al cliente. Busco oportunidades que me permitan aplicar mis conocimientos, fortalecer mis habilidades técnicas y crecer profesionalmente.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">Dirección:</span>
+                            <span class="contact-value">Calle 4 #37-30 Santiago de Cali</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Teléfono:</span>
+                            <span class="contact-value">(+57) 3233400022</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Mail:</span>
+                            <span class="contact-value"><a href="mailto:isabellacastano198@gmail.com">isabellacastano198@gmail.com</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">GitHub:</span>
+                            <span class="contact-value"><a href="https://github.com/isabellacasta198" target="_blank">github.com/isabellacasta198</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">LinkedIn:</span>
+                            <span class="contact-value"><a href="https://www.linkedin.com/in/isabella-castaño-1784ba316" target="_blank">linkedin.com/in/isabella-castaño</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="perfil-image fade-in">
+                    <div class="image-placeholder">💻</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  
-  <section>
-    <h2>Historial Laboral</h2>
-    <p>Prácticas académicas en proyectos web universitarios</p>
-    <p>Participación en proyecto Spotify EmotionAI (propuesta académica)</p>
-    <ul id="laboral"></ul>
-    <form id="formLaboral">
-      <div class="form-group">
-        <label for="trabajo">Nombre del trabajo</label>
-        <input type="text" id="trabajo" required>
-      </div>
-      <div class="form-group">
-        <label for="fechaTrabajo">Fecha de finalización o Inicialización</label>
-        <input type="date" id="fechaTrabajo" required>
-      </div>
-      <div class="form-group">
-        <label for="estadoTrabajo">Estado</label>
-        <select id="estadoTrabajo" required>
-          <option value="Pendiente">Pendiente</option>
-          <option value="Finalizado">Finalizado o Inicialización</option>
-          <option value="En curso">En curso</option>
-        </select>
-      </div>
-      <button type="submit">Añadir Experiencia</button>
-    </form>
-  </section>
+    <!-- Educación Section -->
+    <section id="educacion">
+        <div class="container">
+            <h2 class="section-title">Educación</h2>
+            <div class="educacion-grid">
+                <div class="educacion-card fade-in">
+                    <h3>IDIOMAS</h3>
+                    <h4>Inglés B2</h4>
+                    <p>Constante aprendiz del curso RAIO Kale Anders - certificado</p>
+                    <h4 style="margin-top: 1rem;">Español</h4>
+                    <p>Nativo</p>
+                </div>
+                <div class="educacion-card fade-in">
+                    <h3>UNIVERSIDAD SANTIAGO DE CALI</h3>
+                    <h4>Tecnología en Sistemas</h4>
+                    <p>Estudiando tecnología en sistemas desde el período 2024A</p>
+                </div>
+                <div class="educacion-card fade-in">
+                    <h3>ESCUELA SECUNDARIA LICEO CERROS DEL VALLE</h3>
+                    <h4>Bachiller</h4>
+                    <p>Graduado con honores académicos período 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Habilidades</h2>
-    <p>PHP y MySQL (nivel intermedio)</p>
-     <p>HTML y CSS (nivel intermedio)</p>
-    <ul id="skills"></ul>
-    <form id="formSkill">
-      <div class="form-group">
-        <label for="skill">Nombre de la habilidad</label>
-        <input type="text" id="skill" required>
-      </div>
-      <div class="form-group">
-        <label for="fechaSkill">Fecha de finalización o Inicialización</label>
-        <input type="date" id="fechaSkill" required>
-      </div>
-      <div class="form-group">
-        <label for="estadoSkill">Estado</label>
-        <select id="estadoSkill" required>
-          <option value="Pendiente">Pendiente</option>
-          <option value="Finalizado">Finalizado o Inicialización</option>
-          <option value="En curso">En curso</option>
-        </select>
-      </div>
-      <button type="submit">Añadir Habilidad</button>
-    </form>
-  
-  </section>
+    <!-- Experiencia Section -->
+    <section id="experiencia">
+        <div class="container">
+            <h2 class="section-title">Experiencia</h2>
+            <div class="experiencia-grid">
+                <div class="experiencia-item fade-in">
+                    <div class="experiencia-icon">💾</div>
+                    <div class="experiencia-content">
+                        <h3>DISEÑO DE BASES DE DATOS ACADÉMICAS</h3>
+                        <h4>(2025)</h4>
+                        <p>Formación académica enfocada en el diseño, análisis y gestión de bases de datos. Uso de MySQL y MongoDB para la creación y administración de estructuras de datos, definición de relaciones y aplicación de principios de organización, integridad y manejo eficiente de la información.</p>
+                    </div>
+                </div>
 
+                <div class="experiencia-item fade-in">
+                    <div class="experiencia-icon">🎯</div>
+                    <div class="experiencia-content">
+                        <h3>CURSO DE ATENCIÓN AL CLIENTE</h3>
+                        <h4>(2024)</h4>
+                        <p>Simulación de escenarios reales de atención, manejo de quejas y fidelización de clientes, experiencia práctica como promotora para la marca Heineken, trabajando en conjunto con la empresa Globo Marketing Cali, fortaleciendo habilidades interpersonales, trabajo en equipo y orientación al cliente.</p>
+                        <a href="https://www.globomarketing.com.co/" target="_blank">Link: globomarketing.com.co</a>
+                    </div>
+                </div>
 
-    <div id="taskList"></div>
-        <!-- referencia al script -->
-        <script src="script.js"></script>
+                <div class="experiencia-item fade-in">
+                    <div class="experiencia-icon">📊</div>
+                    <div class="experiencia-content">
+                        <h3>ANÁLISIS DE HERRAMIENTAS DE AUTOMATIZACIÓN DE OFICINA</h3>
+                        <h4>(2024)</h4>
+                        <p>Proyecto universitario enfocado en el uso avanzado de herramientas ofimáticas como Excel y Word para la gestión, organización y análisis de datos. Aplicación de funciones, fórmulas y formatos avanzados en Excel, así como la creación de documentos estructurados en Word. Orientado a mejorar la eficiencia en procesos administrativos y optimizar el manejo de información.</p>
+                    </div>
+                </div>
+
+                <div class="experiencia-item fade-in">
+                    <div class="experiencia-icon">🐾</div>
+                    <div class="experiencia-content">
+                        <h3>PÁGINA WEB PARA VETERINARIA (ARQUITECTURA MVC)</h3>
+                        <h4>(2024)</h4>
+                        <p>Desarrollo de una página web para una veterinaria utilizando el patrón MVC, enfocada en la correcta organización del código y la separación de responsabilidades. Incluye gestión de información básica, estructura escalable y diseño funcional orientado a una mejor experiencia del usuario.</p>
+                        <a href="https://github.com/isabellacasta198/Peluditos" target="_blank">Link: github.com/isabellacasta198/Peluditos</a>
+                    </div>
+                </div>
+
+                <div class="experiencia-item fade-in">
+                    <div class="experiencia-icon">📅</div>
+                    <div class="experiencia-content">
+                        <h3>PÁGINA WEB DE EVENTOS – UNIVERSIDAD SANTIAGO DE CALI</h3>
+                        <h4>(2024)</h4>
+                        <p>Creación de una página web informativa para la gestión y visualización de eventos académicos y culturales de la Universidad Santiago de Cali. El sistema permite mostrar eventos, fechas y descripciones de forma clara, con una interfaz accesible y organizada.</p>
+                        <a href="https://github.com/isabellacasta198/AcademyX" target="_blank">Link: github.com/isabellacasta198/AcademyX</a>
+                    </div>
+                </div>
+
+                <div class="experiencia-item fade-in">
+                    <div class="experiencia-icon">🎓</div>
+                    <div class="experiencia-content">
+                        <h3>PLATAFORMA WEB DE CURSOS TIPO UDEMY</h3>
+                        <h4>(2024)</h4>
+                        <p>Desarrollo de una plataforma web de cursos inspirada en el modelo de Udemy, orientada a la publicación y gestión de cursos en línea. Incluye estructura de cursos, secciones y contenido educativo, con un diseño intuitivo y enfocado en la experiencia del usuario.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificación Section -->
+    <section id="certificacion">
+        <div class="container">
+            <h2 class="section-title">Certificación</h2>
+            <div class="certificacion-grid">
+                <div class="certificacion-card fade-in">
+                    <div class="cert-logo">UDEMY</div>
+                    <h3>CERTIFICACIÓN UDEMY – API TESTING CON POSTMAN</h3>
+                    <p>Certificación enfocada en el aprendizaje y aplicación de pruebas de APIs REST utilizando la herramienta Postman. Desarrollo de habilidades para el diseño, ejecución y automatización de pruebas mediante métodos HTTP (GET, POST, PUT y DELETE), validación de respuestas, manejo de headers, params, body y uso de variables de entorno. Introducción a la creación de colecciones, documentación de APIs y ejecución de pruebas básicas.</p>
+                </div>
+
+                <div class="certificacion-card fade-in">
+                    <div class="cert-logo">RAIO</div>
+                    <h3>CERTIFICACIÓN CURSO DE INGLÉS – RAIO (KALE ANDERS)</h3>
+                    <p>Certificación orientada al fortalecimiento de las habilidades en comprensión, escritura y comunicación en inglés, con enfoque práctico para contextos académicos y profesionales. Desarrollo de competencias para la lectura de textos técnicos y la comunicación efectiva en situaciones cotidianas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Number Indicator -->
+    <div class="page-number" id="pageNumber">Page | 01</div>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Page number indicator
+        const sections = document.querySelectorAll('section');
+        const pageNumber = document.getElementById('pageNumber');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = String(index + 1).padStart(2, '0');
+                }
+            });
+            pageNumber.textContent = `Page | ${current}`;
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
