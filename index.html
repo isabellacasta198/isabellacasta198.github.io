@@ -132,10 +132,15 @@
         }
 
         .hero-content {
-            text-align: center;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
+    text-align: center;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
         @keyframes fadeInUp {
             from {
@@ -630,10 +635,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="perfil-image fade-in">
-                    <div class="image-placeholder">💻</div>
-                </div>
-            </div>
+ <div class="perfil-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop" alt="Workspace" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>         
+               </div>
         </div>
     </section>
 
@@ -744,6 +749,11 @@
                     <h3>CERTIFICACIÓN CURSO DE INGLÉS – RAIO (KALE ANDERS)</h3>
                     <p>Certificación orientada al fortalecimiento de las habilidades en comprensión, escritura y comunicación en inglés, con enfoque práctico para contextos académicos y profesionales. Desarrollo de competencias para la lectura de textos técnicos y la comunicación efectiva en situaciones cotidianas.</p>
                 </div>
+                <div class="certificacion-card fade-in">
+                    <div class="cert-logo">UDEMY</div>
+                    <h3>CERTIFICACIÓN UDEMY – FUNDAMENTOS DE SCRUM</h3>
+                    <p>Certificación orientada al fortalecimiento de conocimientos en metodologías ágiles, específicamente en el marco de trabajo Scrum, con enfoque práctico para la gestión y desarrollo de proyectos. Desarrollo de competencias en la aplicación de roles, eventos y artefactos de Scrum, promoviendo el trabajo en equipo, la mejora continua y la entrega incremental de valor en contextos académicos y profesionales.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -800,3 +810,4 @@
     </script>
 </body>
 </html>
+
